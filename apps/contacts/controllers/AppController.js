@@ -48,16 +48,31 @@ define(function(require, exports, module) {
 
         contactDetails: function(contactID) {
             this._headerView.setActiveLink('none');
-            if (!App.collections.contacts) {
-                this._initContactCollection();
-            }
-            $.when(App.collections.contacts.deferred.promise()).done(function () {
-                var contact = _.findWhere(App.collections.contacts.models, {'id': contactID});
+
+            // Try finding model in current paged collection, otherwise fetch the model.
+            var contact = null;
+            var deferred = new $.Deferred();
+            if (App.collections.contacts) {
+                contact = _.findWhere(App.collections.contacts.models, {'id': contactID});
                 if (contact) {
-                    App.mainRegion.show(new ContactDetailsView({'model': contact}));
-                } else {
-                    // TODO: Not Found view
+                    deferred.resolve();
                 }
+            }
+            if (deferred.state() != 'resolved') {
+                var tmp = '';
+                contact = new Contact({'id': contactID});
+                contact.fetch().done(function() {
+                    deferred.resolve();
+                }).fail(function(jqXHR/*, textStatus, errorThrown*/) {
+                    if (jqXHR.status == 404) {
+                        // TODO: 404 - Bootstrap alert message or view
+                    } else {
+                        // TODO: General server - Bootstrap alert message or view
+                    } 
+                });
+            }
+            $.when(deferred.promise()).done(function () {
+                App.mainRegion.show(new ContactDetailsView({'model': contact}));
             });
         },
 
