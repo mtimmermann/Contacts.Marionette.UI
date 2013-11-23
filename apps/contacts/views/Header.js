@@ -2,7 +2,7 @@ define(function(require, exports, module) {
 
 	var HeaderTemplate = require('tpl!templates/header.jst');
 
-    // ItemView provides some default rendering logic
+    // Header View
     return Backbone.Marionette.ItemView.extend({
 
     	events: {

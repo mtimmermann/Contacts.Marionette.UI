@@ -7,6 +7,7 @@ define(function(require, exports, module) {
         ContactDetailsView = require('views/ContactDetails'),
         ContactEditView = require('views/ContactEdit'),
 		PaginatorView = require('views/Paginator'),
+        ContactSearchInputView = require('views/ContactSearchInput'),
 		Contacts = require('collections/Contacts'),
         Contact = require('models/Contact'),
 		AboutView = require('views/About');
@@ -25,8 +26,7 @@ define(function(require, exports, module) {
 
             this._initContactCollection();
 
-        	//$.when.apply([contactsCollection.deferred]).done(function () {
-            //$.when.apply([contactsCollection.deferred.promise()]).done(function () {
+            //$.when.apply(null, [contactsCollection.deferred.promise()]).done(function () {
             $.when(App.collections.contacts.deferred.promise()).done(function () {
         		var contactListLayout = new ContactListLayout();
         		App.mainRegion.show(contactListLayout);
@@ -40,6 +40,9 @@ define(function(require, exports, module) {
                     new PaginatorView(App.collections.contacts));
                 contactListLayout.paginatorBottom.show(
                     new PaginatorView(App.collections.contacts));
+
+                // Show contact search input region
+                contactListLayout.contactSearch.show(new ContactSearchInputView());
         	});
         },
 

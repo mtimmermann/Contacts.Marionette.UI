@@ -8,6 +8,7 @@ define(function(require, exports, module) {
 
         regions: {
             paginatorTop: "#paginator-top",
+            contactSearch: '#contact-search',
             contactList: "#contact-list",
             paginatorBottom: '#paginator-bottom'
         }

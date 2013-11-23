@@ -2,7 +2,7 @@ define(function(require, exports, module) {
 
 	var PaginatorTemplate = require('tpl!templates/paginator.jst');
 
-    // ItemView provides some default rendering logic
+    // Paginator View
     return Backbone.Marionette.ItemView.extend({
 
         template: PaginatorTemplate,
@@ -38,16 +38,7 @@ define(function(require, exports, module) {
         	this.collection.nextPage({});
         	//this.collection.goTo(this.collection.currentPage + 1);
         	this.collection.getCollection();
-        },
-/*
-		<% _.each (pageSet, function (p) { %>
-			<% if (currentPage == p) { %>
-				<li class="active"><span><%= p %></span></li>
-			<% } else { %>
-				<li><a href="#" class="page"><%= p %></a></li>
-			<% } %>
-		<% }); %>
-*/
+        }
 
     });
 
