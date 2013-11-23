@@ -20,10 +20,10 @@ of this site, and handle proxy passes to the [Contacts.Marionette.App](https://g
 ## Updating dependencies ##
 Using node package manager:
 
-npm install
+**npm install**
 
 
 ## Build ##
-grunt
+**grunt**
 
-optionally run "grunt watch" if you want rebuilds when files are modified, deleted, added.
+optionally run "**grunt watch**" if you want rebuilds when files are modified, deleted, added.
