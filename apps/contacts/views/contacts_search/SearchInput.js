@@ -19,10 +19,7 @@ define(function(require, exports, module) {
 
             this.searchResultsView = new SearchResultsView({ 'collection': this.searchResults });
 
-            //this.listenTo(this.model, 'reset', this.update);
-            //this.model = this.searchResults;
             this.listenTo(this.searchResults, 'reset', this.update);
-            //this.listenTo(this.model, 'reset', this.update);
         },
 
         update: function (/*model, collection, options*/) {
@@ -62,7 +59,6 @@ define(function(require, exports, module) {
 
         onkeypress: function (e) {
             if (e.keyCode === 13) { // enter key pressed
-                //e.preventDefault();
                 return false; // Prevent form submit
             }
         }

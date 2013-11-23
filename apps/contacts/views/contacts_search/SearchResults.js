@@ -10,6 +10,10 @@ define(function(require, exports, module) {
     return Backbone.View.extend({
         tagName: 'ul',
 
+        attributes: {
+            'class': 'dropdown-menu'
+        },
+
         initialize: function(options) {
             options = options || {};
             if (!options.collection) {

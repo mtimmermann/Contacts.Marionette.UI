@@ -119,6 +119,7 @@ module.exports = function (grunt) {
                     'vendor/plugins/jquery/file-upload/vendor/jquery.ui.widget.js',
                     'vendor/plugins/jquery/file-upload/jquery.fileupload.js',
                     'vendor/bootstrap/js/bootstrap.js',
+                    'vendor/bootstrap/js/bootstrap-dropdown.js',
                     'vendor/moment.js',
                     'assets/shared/js/validate.js',
                     'assets/shared/js/ui.js',
