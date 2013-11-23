@@ -1,5 +1,5 @@
-Contacts.Marionette
-====================
+Contacts.Marionette.UI
+======================
 
 A simple example of using Backbone.Marionette to maintain a list of contacts.
 This site implements paging using the Backbone.Paginator (which extends a collection),
@@ -13,7 +13,8 @@ https://github.com/BoilerplateMVC/Marionette-Require-Boilerplate.git
 ## Prerequisites ##
 [Node.js](http://nodejs.org/) must be installed in order to build this site.
 
-To run this site, the [Contacts.Marionette.App](https://github.com/mtimmermann/Contacts.Marionette.App) must first be setup and running ([see the README for that project](https://github.com/mtimmermann/Contacts.Marionette.App))
+To run this site, the [Contacts.Marionette.App](https://github.com/mtimmermann/Contacts.Marionette.App) must first be setup and running ([see the README for that project](https://github.com/mtimmermann/Contacts.Marionette.App)). I am also using NGINX to serve up the static content
+of this site, and handle proxy passes to the [Contacts.Marionette.App](https://github.com/mtimmermann/Contacts.Marionette.App) NodeJS app, the configuration can be found there.
 
 
 ## Updating dependencies ##
