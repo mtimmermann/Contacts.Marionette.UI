@@ -8,3 +8,7 @@
 .search-container {
     margin-top: 20px;
 }
+
+.search-result-item-avatar {
+    height: 20px;
+}

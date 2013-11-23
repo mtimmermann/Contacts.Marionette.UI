@@ -11,6 +11,13 @@ define(function(require, exports, module) {
         template: ContactListTemplate,
         itemView: ContactListItemView,
         //collection: Contacts,
+
+        initialize: function(options) {
+            options = options || {};
+            if (!options.collection) {
+                throw (new Error('ContactList View: collection option is required'));
+            }
+        }
     });
 
 });

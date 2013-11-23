@@ -7,7 +7,7 @@ define(function(require, exports, module) {
         ContactDetailsView = require('views/ContactDetails'),
         ContactEditView = require('views/ContactEdit'),
 		PaginatorView = require('views/Paginator'),
-        ContactSearchInputView = require('views/ContactSearchInput'),
+        SearchInputView = require('views/contacts_search/SearchInput'),
 		Contacts = require('collections/Contacts'),
         Contact = require('models/Contact'),
 		AboutView = require('views/About');
@@ -42,7 +42,7 @@ define(function(require, exports, module) {
                     new PaginatorView(App.collections.contacts));
 
                 // Show contact search input region
-                contactListLayout.contactSearch.show(new ContactSearchInputView());
+                contactListLayout.contactSearch.show(new SearchInputView());
         	});
         },
 
