@@ -1,0 +1,6 @@
+@import url("bootstrap.css");
+@import url("commonstyles.css");
+
+.contact-card {
+    height: 260px;
+}

@@ -1,0 +1,56 @@
+TODO: Contact Details
+<div class="row">
+
+    <legend>Contact Details <a href="#contacts/edit/{{ id }}" class="btn edit">Edit</a></legend>
+    <br/>
+
+
+    <div class="span3">
+        <div class="row">
+            <div class="span3">{{ firstName }}</div>
+        </div>
+        <div class="row">
+            <div class="span3">{{ lastName }}</div>
+        </div>
+        <div class="row">
+            <div class="span3">
+                <p>
+                    {{ phone1 }}
+                    {{ phone1_note }}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span3">
+                <p>
+                    {{ email1 }}
+                    {{ email1_note }}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span3">
+                <p>
+                    {{ city }} {{ region }}, {{ country }}
+                </p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="span3">
+                <p>
+                    {{ description }}
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="span3">
+        <div class="well">
+            <p><img id="picture" width="180" src="{{ picture === null ? '/pics/avatar_default.jpg' : '/pics/' + picture }}"/></p>
+        </div>
+    </div>
+
+</div>

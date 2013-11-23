@@ -1,0 +1,160 @@
+<div class="row">
+
+    <form class="form-horizontal span12">
+
+        <fieldset>
+
+            <legend>Contact Details - Edit</legend>
+            <br/>
+
+            <div class="row">
+                <div class="span9">
+
+                    <div class="control-group">
+                        <label for="contactId" class="control-label">Id:</label>
+                        <div class="controls">
+                            <input id="contactId" name="id" type="text" value="{{ id === null ? '' : id }}" class="span3"
+                                   disabled/>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="firstName" class="control-label">First Name:</label>
+                        <div class="controls">
+                            <input type="text" id="firstName" name="firstName" value="{{ firstName }}"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="lastName" class="control-label">Last Name:</label>
+
+                        <div class="controls">
+                            <input type="text" id="lastName" name="lastName" value="{{ lastName }}"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="span4">
+                            <div class="control-group">
+                                <label for="phone1" class="control-label">Phone 1:</label>
+                                <div class="controls">
+                                    <input type="text" id="phone1" name="phone1" value="{{ phone1 }}"/>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span4">
+                            <div class="control-group">
+                                <label for="phone1_note" class="control-label">Note:</label>
+                                <div class="controls">
+                                    <input type="text" id="phone1_note" name="phone1_note" value="{{ phone1_note }}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="span4">
+                            <div class="control-group">
+                                <label for="email1" class="control-label">Email 1:</label>
+                                <div class="controls">
+                                    <input type="text" id="email1" name="email1" value="{{ email1 }}"/>
+                                    <span class="help-inline"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="span2">
+                            <div class="control-group">
+                                <label for="email1_note" class="control-label">Note:</label>
+                                <div class="controls">
+                                    <input type="text" id="email1_note" name="email1_note" value="{{ email1_note }}"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="city" class="control-label">City:</label>
+
+                        <div class="controls">
+                            <input type="text" id="city" name="city" value="{{ city }}"/>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="region" class="control-label">Region:</label>
+
+                        <div class="controls">
+                            <input type="text" id="region" name="region" value="{{ region }}"/>
+                        </div>
+                    </div>
+
+                    <div class="control-group">
+                        <label for="country" class="control-label">Country:</label>
+
+                        <div class="controls">
+                            <input type="text" id="country" name="country" value="{{ country }}"/>
+                            <span class="help-inline"></span>
+                        </div>
+                    </div>
+
+                    <!--<div class="control-group">
+                        <label for="year" class="control-label">Year:</label>
+
+                        <div class="controls">
+                            <select class="span1" id="year" name="year" value="<P= year %>">
+                                <option
+                                <P= year == 2012?'selected':'' %>>2012</option>
+                                <option
+                                <P= year == 2011?'selected':'' %>>2011</option>
+                                <option
+                                <P= year == 2010?'selected':'' %>>2010</option>
+                                <option
+                                <P= year == 2009?'selected':'' %>>2009</option>
+                                <option
+                                <P= year == 2008?'selected':'' %>>2008</option>
+                                <option
+                                <P= year == 2007?'selected':'' %>>2007</option>
+                            </select>
+                        </div>
+                    </div>-->
+
+                    <div class="control-group">
+                        <label for="description" class="control-label">Notes:</label>
+
+                        <div class="controls">
+                            <textarea id="description" name="description" class="span6" rows="6">{{ description }}</textarea>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="span3">
+                    <div class="well">
+                        <p><img id="picture" width="180" src="{{ picture === null ? '/pics/avatar_default.jpg' : '/pics/' + picture }}"/></p>
+
+                        <p>To change the picture, drag a new picture from your file system onto the box above.</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </fieldset>
+
+        <div class="form-actions">
+            <button data-contact-edit-button="save" class="btn btn-primary save">Save</button>
+            <button data-contact-edit-button="delete" class="btn delete">Delete</button>
+        </div>
+
+    </form>
+
+</div>
+
+<div class="row status-bar">
+    <div class="span12">
+        <div class="alert alert-success" style="display: none">
+            <b>Success!</b> Contact saved successfully
+        </div>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+<a href="#contacts/{{ id }}" class="thumbnail plain contact-card">
+    <img src="{{ picture === null ? 'img/avatar_default.jpg' : 'pics/' + picture }}" height="150" width="150" alt="">
+    <h5>{{ lastName }}, {{ firstName }}</h5>
+    <p>
+        {{ phone1 }} {{ phone1_note }}
+        {{ email1 }}
+    </p>
+    <i class="icon-globe"></i> {{ city }} {{ region }}, {{ country }}</p>
+</a>

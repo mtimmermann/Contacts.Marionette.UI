@@ -1,0 +1,8 @@
+.sass-cache/*
+.DS_Store
+*.swp
+*.swo
+
+/deploy
+/node_modules
+/jst
