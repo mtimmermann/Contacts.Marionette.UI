@@ -5998,3 +5998,9 @@ td.visible-print {
   background-color: #EEE;
   border: 1px solid #428bca;
 }
+.inline {
+  display: inline;
+}
+.inline-block {
+  display: inline-block;
+}
