@@ -5,6 +5,12 @@ define(function(require, exports, module) {
 	// ContactDetails class - Item view
     return Backbone.Marionette.ItemView.extend({
 
+        template: ContactDetailsTemplate,
+
+        events: {
+            'click [data-contact-details="edit"]': 'edit'
+        },
+
     	initialize: function(options) {
             options = options || {};
             if (!options.model) {
@@ -12,7 +18,9 @@ define(function(require, exports, module) {
             }
     	},
 
-        template: ContactDetailsTemplate
+        edit: function() {
+            App.appRouter.navigate('#contacts/edit/'+ this.model.get('id'), true);
+        }
     });
 
 });
