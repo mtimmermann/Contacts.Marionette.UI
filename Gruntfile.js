@@ -154,7 +154,7 @@ module.exports = function (grunt) {
             },
             contacts_scripts: {
                 files: ['apps/contacts/**/*.js','apps/contacts/**/*.jst', 'vendor/**/*.js', 'less/**/*.less'],
-                tasks: ['requirejs:contacts', 'copy', 'notify:scripts', 'less'],
+                tasks: ['requirejs:contacts', 'less', 'copy', 'notify:scripts'],
                 options: { livereload: true }
             },
             // compass: {

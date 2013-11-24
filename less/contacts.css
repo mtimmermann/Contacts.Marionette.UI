@@ -5990,3 +5990,11 @@ td.visible-print {
     display: none !important;
   }
 }
+.contact-card img {
+  width: 150px;
+  height: 150px;
+}
+.contact-card .thumbnail:hover {
+  background-color: #EEE;
+  border: 1px solid #428bca;
+}

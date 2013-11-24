@@ -4,8 +4,8 @@ define(function(require, exports, module) {
 
     // ContactListItem class - Item view
     return Backbone.Marionette.ItemView.extend({
-    	tagName: 'li',
-    	className: 'span3',
+        tagName: 'div',
+        className: 'contact-card',
         template: ContactListItemTemplate
     });
 
