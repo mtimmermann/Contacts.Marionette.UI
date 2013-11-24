@@ -254,20 +254,6 @@ module.exports = function (grunt) {
             contactsCSS: {
                 options: {
                     optimizeCss: "standard",
-                    cssIn: "css/contacts.css",
-                    out: "deploy/styles/contacts.min.css"
-                }
-            },
-            // contactsCSS: {
-            //     options: {
-            //         optimizeCss: "standard",
-            //         cssIn: "css/contacts.css",
-            //         out: "deploy/styles/contacts.min.css"
-            //     }
-            // },
-            contactsCSS: {
-                options: {
-                    optimizeCss: "standard",
                     cssIn: "less/contacts.css",
                     out: "deploy/styles/contacts.min.css"
                 }
