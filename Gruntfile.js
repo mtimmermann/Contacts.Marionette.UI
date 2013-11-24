@@ -43,7 +43,9 @@ module.exports = function (grunt) {
                     { src: 'vendor/html5shim.js', dest: 'deploy/core/js/html5shim.js' },
                     { src: 'vendor/json2.js', dest: 'deploy/core/js/json2.js' },
                     { src: 'vendor/jquery-1.10.2.js', dest: 'deploy/core/js/jquery-1.10.2.js' },
-                    { src: 'vendor/ie7hacks.js', dest: 'deploy/core/js/ie7hacks.js' }
+                    { src: 'vendor/ie7hacks.js', dest: 'deploy/core/js/ie7hacks.js' },
+                    { expand: true, cwd: 'vendor/bootstrap/fonts/', src: '**', dest: 'deploy/fonts' }
+                    //{ expand: true, cwd: 'vendor/bootstrap/fonts/', src: '**', dest: 'deploy' }
                 ]
             },
             login: {

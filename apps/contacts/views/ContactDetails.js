@@ -1,18 +1,26 @@
 define(function(require, exports, module) {
 
-	var ContactDetailsTemplate = require('tpl!templates/contact_details.jst');
+    var ContactDetailsTemplate = require('tpl!templates/contact_details.jst');
 
-	// ContactDetails class - Item view
+    // ContactDetails class - Item view
     return Backbone.Marionette.ItemView.extend({
 
-    	initialize: function(options) {
+        template: ContactDetailsTemplate,
+
+        events: {
+            'click [data-contact-details="edit"]': 'edit'
+        },
+
+        initialize: function(options) {
             options = options || {};
             if (!options.model) {
                 throw (new Error('ContactDetails View: model option is required'));
             }
-    	},
+        },
 
-        template: ContactDetailsTemplate
+        edit: function() {
+            App.appRouter.navigate('#contacts/edit/'+ this.model.get('id'), true);
+        }
     });
 
 });
