@@ -1,20 +1,24 @@
-<div class="row-fluid">
-	<div class="pagination span8">
-		<ul>
-			<li>
-				<span>Page: {{ currentPage }} of {{ totalPages }}</</span>
-			</li>
-			<li>
-				<a data-paginator-link="prev" href="#">< Prev</a>
-			</li>
-			<li>
-				<a data-paginator-link="next" href="#">Next ></a>
-			</li>
-			<!--
-			_.each (pageSet, function (p) {
-				TODO:
-			});
-			-->
-		</ul>
-	</div>
-</div>
+<table>
+    <tbody>
+        <tr>
+            <td>
+                <span>Page: {{ currentPage }} of {{ totalPages }}</</span>
+            </td>
+            <td>
+                <ul class="pagination">
+                    <li>
+                        <a data-paginator-link="prev" href="#">< Prev</a>
+                    </li>
+                    <li>
+                        <a data-paginator-link="next" href="#">Next ></a>
+                    </li>
+                    <!--
+                    _.each (pageSet, function (p) {
+                        TODO:
+                    });
+                    -->
+                </ul>
+            </td>
+        </tr>
+    </tbody>
+</table>
