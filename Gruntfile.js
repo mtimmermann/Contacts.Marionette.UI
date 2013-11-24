@@ -16,6 +16,20 @@ module.exports = function (grunt) {
         //     }
         // },
 
+        // Running `grunt less` will compile once
+        //"./css/style.css": "./css/style.less"
+        less: {
+            development: {
+                    options: {
+                    paths: ["./css"],
+                    yuicompress: true
+                },
+                files: {
+                    "less/contacts.css": "less/contacts.less"
+                }
+            }
+        },
+
         copy: {
             assets: {
                 files: [
@@ -138,14 +152,9 @@ module.exports = function (grunt) {
                 tasks: ['requirejs:login', 'copy','notify:scripts'],
                 options: { livereload: true }
             },
-            // portal_scripts: {
-            //     files: ['apps/portal/**/*.js','apps/portal/**/*.jst', 'vendor/**/*.js'],
-            //     tasks: ['requirejs:portal', 'copy','notify:scripts'],
-            //     options: { livereload: true }
-            // },
             contacts_scripts: {
-                files: ['apps/contacts/**/*.js','apps/contacts/**/*.jst', 'vendor/**/*.js'],
-                tasks: ['requirejs:contacts', 'copy','notify:scripts'],
+                files: ['apps/contacts/**/*.js','apps/contacts/**/*.jst', 'vendor/**/*.js', 'less/**/*.less'],
+                tasks: ['requirejs:contacts', 'copy', 'notify:scripts', 'less'],
                 options: { livereload: true }
             },
             // compass: {
@@ -186,6 +195,11 @@ module.exports = function (grunt) {
             //         message: 'Sass compiled successfully.'
             //     }
             // },
+            less: {
+                options: {
+                    message: 'Less compiled successfully.'
+                }
+            },
             templates: {
                 options: {
                     message: 'Templates compiled successfully.'
@@ -244,6 +258,20 @@ module.exports = function (grunt) {
                     out: "deploy/styles/contacts.min.css"
                 }
             },
+            // contactsCSS: {
+            //     options: {
+            //         optimizeCss: "standard",
+            //         cssIn: "css/contacts.css",
+            //         out: "deploy/styles/contacts.min.css"
+            //     }
+            // },
+            contactsCSS: {
+                options: {
+                    optimizeCss: "standard",
+                    cssIn: "less/contacts.css",
+                    out: "deploy/styles/contacts.min.css"
+                }
+            },
             login: {
                 options: {
                     baseUrl: 'apps/login',
@@ -282,6 +310,7 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
     //grunt.loadNpmTasks('grunt-contrib-compass');
+    grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');
     grunt.loadNpmTasks('grunt-notify');
