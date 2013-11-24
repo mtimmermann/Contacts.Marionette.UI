@@ -5990,6 +5990,9 @@ td.visible-print {
     display: none !important;
   }
 }
+.inline-block {
+  display: inline-block;
+}
 .contact-card img {
   width: 150px;
   height: 150px;
@@ -5998,9 +6001,7 @@ td.visible-print {
   background-color: #EEE;
   border: 1px solid #428bca;
 }
-.inline {
-  display: inline;
-}
-.inline-block {
-  display: inline-block;
+.contact-details div.contact-image {
+  vertical-align: top;
+  margin-left: 30px;
 }
