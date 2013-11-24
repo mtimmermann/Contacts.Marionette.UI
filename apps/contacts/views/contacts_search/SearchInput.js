@@ -24,9 +24,9 @@ define(function(require, exports, module) {
 
         update: function (/*model, collection, options*/) {
             if (this.searchResults.length > 0)
-                $(this.el).find('.dropdown').addClass('open');
+                this.$('.dropdown').addClass('open');
             else
-                $(this.el).find('.dropdown').removeClass('open');
+                this.$('.dropdown').removeClass('open');
         },
 
         render: function() {
@@ -36,7 +36,7 @@ define(function(require, exports, module) {
         },
 
         renderSearchResults: function() {
-            $(this.el).find('form.navbar-search').append(
+            this.$('[data-contact-search="form"]').append(
                 this.searchResultsView.render().el);
         },
 
@@ -49,7 +49,7 @@ define(function(require, exports, module) {
             var key = input.val();
             if (key.length == 0) {
                 this.searchResults.reset();
-                $(this.el).find('.dropdown').removeClass('open');
+                this.$('.dropdown').removeClass('open');
                 return;
             }
             //this._searchResults.fetch({reset: true, data: {search: key}});
