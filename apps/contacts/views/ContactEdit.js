@@ -6,7 +6,7 @@ define(function(require, exports, module) {
     return Backbone.Marionette.ItemView.extend({
 
         tagName: 'div',
-        className: 'contact-details',
+        className: 'contact-edit',
     	template: ContactEditTemplate,
 
     	events: {

@@ -9,9 +9,23 @@
 //    display: inline;
 //}
 
+/* Global form-group input error */
+.form-group {
+    &.error {
+        input {
+            color: #B94A48;
+            border-color: #B94A48;
+        }
+        .help-inline {
+            color: #B94A48;
+        }
+    }
+}
+
 .inline-block {
     display: inline-block;
 }
+
 
 .contact-card {
     img {
@@ -20,7 +34,7 @@
     }
     .thumbnail:hover {
         background-color: #EEE;
-        border: 1px solid #428bca;
+        border: 1px solid #428BCA;
     }
 }
 
@@ -29,5 +43,23 @@
     div.contact-image {
         vertical-align: top;
         margin-left: 30px;
+        img {
+            width: 180px;
+        }
+        .instructions {
+            width: 180px;
+        }
     }
 }
+.contact-edit {
+    .medium {
+        min-width: 250px;
+    }
+    button.delete {
+        margin-left: 30px;
+    }
+    div.inline-block {
+        vertical-align: top;
+    }
+}
+

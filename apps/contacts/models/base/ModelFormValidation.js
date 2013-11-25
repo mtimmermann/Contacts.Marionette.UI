@@ -24,17 +24,21 @@ define(function(require, exports, module) {
         },
 
         _addValidationError: function (field, message) {
-            var controlGroup = $('#' + field).parent().parent();
-            controlGroup.addClass('error');
-            $('.help-inline', controlGroup).html(message);
+            //var controlGroup = $('#' + field).parent().parent();
+            //var controlGroup = $('#' + field).parent();
+            var formGroup = $('#'+ field).parent('.form-group');
+            formGroup.addClass('error');
+            $('.help-inline', formGroup).html(message);
         },
 
         _removeValidationError: function (field) {
             //var isValid = this.validateItem(field);
             //if (isValid) {
-            var controlGroup = $('#' + field).parent().parent();
-            controlGroup.removeClass('error');
-            $('.help-inline', controlGroup).html('');
+            //var controlGroup = $('#' + field).parent().parent();
+            //var controlGroup = $('#' + field).parent();
+            var formGroup = $('#'+ field).parent('.form-group');
+            formGroup.removeClass('error');
+            $('.help-inline', formGroup).html('');
             //}
         }
 

@@ -5990,6 +5990,14 @@ td.visible-print {
     display: none !important;
   }
 }
+/* Global form-group input error */
+.form-group.error input {
+  color: #B94A48;
+  border-color: #B94A48;
+}
+.form-group.error .help-inline {
+  color: #B94A48;
+}
 .inline-block {
   display: inline-block;
 }
@@ -5999,10 +6007,27 @@ td.visible-print {
 }
 .contact-card .thumbnail:hover {
   background-color: #EEE;
-  border: 1px solid #428bca;
+  border: 1px solid #428BCA;
 }
 .contact-details div.contact-image,
 .contact-edit div.contact-image {
   vertical-align: top;
   margin-left: 30px;
+}
+.contact-details div.contact-image img,
+.contact-edit div.contact-image img {
+  width: 180px;
+}
+.contact-details div.contact-image .instructions,
+.contact-edit div.contact-image .instructions {
+  width: 180px;
+}
+.contact-edit .medium {
+  min-width: 250px;
+}
+.contact-edit button.delete {
+  margin-left: 30px;
+}
+.contact-edit div.inline-block {
+  vertical-align: top;
 }

@@ -56,11 +56,11 @@ define(function(require, exports, module) {
             email1: [
                 {
                     required: true,
-                    msg: "Please enter an email address"
+                    msg: 'Please enter an email address'
                 },
                 {
-                    pattern: "email",
-                    msg: "Please enter a valid email"
+                    pattern: 'email',
+                    msg: 'Please enter a valid email'
                 }
             ]
         },
