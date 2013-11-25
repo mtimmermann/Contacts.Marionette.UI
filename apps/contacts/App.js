@@ -20,6 +20,9 @@ define(function(require, exports, module) {
 		contacts: null
 	};
 
+    App.Notifications = {};
+    _.extend(App.Notifications, Backbone.Events);
+
     App.addInitializer(function () {
         Backbone.history.start();
     });

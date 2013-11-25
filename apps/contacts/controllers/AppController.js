@@ -17,7 +17,31 @@ define(function(require, exports, module) {
         initialize: function (options) {
         	this._headerView = new HeaderView();
             App.headerRegion.show(this._headerView);
+
+            // Event subscriptions
+            //App.Notifications.on('Paginator.PrePage', this._onPrePage, this);
+            //App.Notifications.on('Paginator.DonePage', this._onDonePage, this);
         },
+
+        // _onPrePage: function(/*message*/) {
+        //     App.mainRegion.currentView.contactList.$el.hide();
+        // },
+        // _onDonePage: function(/*message*/) {
+        //     //App.mainRegion.currentView.contactList.show(
+        //     //    new ContactListView({'collection': App.collections.contacts}));
+        //     //debugger;
+        //     $.when(App.collections.contacts.deferred.promise()).done(function () {
+        //         App.mainRegion.currentView.contactList.$el.fadeIn();
+        //     });
+        // },
+
+        // _onPrePage: function(/*message*/) {
+        //     App.mainRegion.currentView.contactList.$el.fadeOut(function() {
+        //         $.when(App.collections.contacts.deferred.promise()).done(function () {
+        //             //App.mainRegion.currentView.contactList.$el.fadeIn();
+        //         });
+        //     });
+        // },
 
         // AppRouter appRoutes
 

@@ -30,14 +30,18 @@ define(function(require, exports, module) {
         },
 
         prev: function() {
+            //App.Notifications.trigger('Paginator.PrePage', null);
         	this.collection.previousPage({});
         	this.collection.getCollection();
+            //App.Notifications.trigger('Paginator.DonePage', null);
         },
 
         next: function() {
+            //App.Notifications.trigger('Paginator.PrePage', null);
         	this.collection.nextPage({});
         	//this.collection.goTo(this.collection.currentPage + 1);
         	this.collection.getCollection();
+            //App.Notifications.trigger('Paginator.DonePage', null);
         }
 
     });
