@@ -14,20 +14,6 @@ define(function(require, exports, module) {
             return data;
         },
 
-        // defaults: {
-        //  id: null,
-        //  firstName: "",
-        //  lastName: "",
-        //  email1: "",
-        //  email1_note: "",
-        //  phone1: "",
-        //  phone1_note: "",
-        //  city: "",
-        //  region: "Colorado",
-        //  country: "USA",
-        //  picture: null,
-        //  description: ""
-        // }
         defaults: {
             id: null,
             firstName: '',
@@ -63,11 +49,6 @@ define(function(require, exports, module) {
                     msg: 'Please enter a valid email'
                 }
             ]
-        },
-
-        validateItem: function(attrs) {
-            var validation = this.isValid(attrs);
-            return validation;
         }
 
     });

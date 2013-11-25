@@ -2,12 +2,28 @@ define(function(require, exports, module) {
 
     return Backbone.Model.extend({
 
+        _currentValidation: {
+            isSingleItemValidation: true,
+            field: ''
+        },
+
         initialize: function(attributes, options) {
             this._initValidationCallbacks();
         },
 
-        validateItem: function(attrs) {
-            var validation = this.isValid(attrs);
+        // Single item validation
+        validateItem: function(field) {
+            //this._setCurrentValidation(true, field)
+            var validation = this.isValid(field);
+            return validation;
+        },
+        setSingleItemValidation: function(field) {
+            this._setCurrentValidation(true, field);
+        },
+
+        isModelValid: function() {
+            this._setCurrentValidation(false, '');
+            var validation = this.isValid();
             return validation;
         },
 
@@ -23,19 +39,26 @@ define(function(require, exports, module) {
             });
         },
 
+        _setCurrentValidation: function (isSingleItemValidation, field) {
+            this._currentValidation.isSingleItemValidation = isSingleItemValidation;
+            this._currentValidation.field = field;
+        },
+
         _addValidationError: function (field, message) {
-            //var controlGroup = $('#' + field).parent().parent();
-            //var controlGroup = $('#' + field).parent();
+            if (this._currentValidation.isSingleItemValidation &&
+                field !== this._currentValidation.field) {
+                    return;
+            }
             var formGroup = $('#'+ field).parent('.form-group');
             formGroup.addClass('error');
             $('.help-inline', formGroup).html(message);
         },
 
         _removeValidationError: function (field) {
-            //var isValid = this.validateItem(field);
-            //if (isValid) {
-            //var controlGroup = $('#' + field).parent().parent();
-            //var controlGroup = $('#' + field).parent();
+            if (this._currentValidation.isSingleItemValidation &&
+                field !== this._currentValidation.field) {
+                    return;
+            }
             var formGroup = $('#'+ field).parent('.form-group');
             formGroup.removeClass('error');
             $('.help-inline', formGroup).html('');
