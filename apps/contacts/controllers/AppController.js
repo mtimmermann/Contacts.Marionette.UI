@@ -19,49 +19,9 @@ define(function(require, exports, module) {
             App.headerRegion.show(this._headerView);
 
             // Event subscriptions
+            // Prevent UI shifting on contact paging operations
             App.Notifications.on('Paginator.onPrePage', this._onPrePage, this);
-            //App.Notifications.on('Paginator.DonePage', this._onDonePage, this);
             App.Notifications.on('ContactListView.onShow', this._onDonePage, this);
-        },
-
-        // _onPrePage: function(/*message*/) {
-        //     App.mainRegion.currentView.contactList.$el.hide();
-        // },
-        // _onDonePage: function(/*message*/) {
-        //     //App.mainRegion.currentView.contactList.show(
-        //     //    new ContactListView({'collection': App.collections.contacts}));
-        //     //debugger;
-        //     $.when(App.collections.contacts.deferred.promise()).done(function () {
-        //         App.mainRegion.currentView.contactList.$el.fadeIn();
-        //     });
-        // },
-
-        // _onPrePage: function(/*message*/) {
-        //     App.mainRegion.currentView.contactList.$el.fadeOut(function() {
-        //         $.when(App.collections.contacts.deferred.promise()).done(function () {
-        //             //App.mainRegion.currentView.contactList.$el.fadeIn();
-        //         });
-        //     });
-        // },
-
-        _onPrePage: function(/*message*/) {
-            var height = App.mainRegion.currentView.contactList.$el.height();
-            App.mainRegion.currentView.contactList.$el.css('height', height);
-
-            // $.when(App.collections.contacts.deferred.promise()).done(function () {
-            //     //App.mainRegion.currentView.contactList.$el.fadeIn();
-            //     setTimeout(function() {
-            //         App.mainRegion.currentView.contactList.$el.css('height', '');
-            //     }, 500);
-            // });
-        },
-        _onDonePage: function(/*message*/) {
-            $.when(App.collections.contacts.deferred.promise()).done(function () {
-                //App.mainRegion.currentView.contactList.$el.fadeIn();
-                setTimeout(function() {
-                    App.mainRegion.currentView.contactList.$el.css('height', '');
-                }, 500);
-            });
         },
 
         // AppRouter appRoutes
@@ -150,7 +110,20 @@ define(function(require, exports, module) {
         _initContactCollection: function() {
             App.collections.contacts = new Contacts();
             App.collections.contacts.getCollection();
-        }
+        },
+
+        // Prevent UI shifting on contact paging operations
+        _onPrePage: function(/*message*/) {
+            var height = App.mainRegion.currentView.contactList.$el.height();
+            App.mainRegion.currentView.contactList.$el.css('height', height);
+        },
+        _onDonePage: function(/*message*/) {
+            $.when(App.collections.contacts.deferred.promise()).done(function () {
+                setTimeout(function() {
+                    App.mainRegion.currentView.contactList.$el.css('height', '');
+                }, 500);
+            });
+        },
     });
 
 });
