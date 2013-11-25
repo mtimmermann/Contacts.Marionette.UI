@@ -19,29 +19,42 @@ define(function(require, exports, module) {
         },
 
         render: function() {
-
             var paginationViewModel = {
                 currentPage: this.collection.currentPage,
                 totalPages: this.collection.totalPages
             };
 
         	this.$el.html(PaginatorTemplate(paginationViewModel));
+
+            if (this.collection.currentPage === 1) {
+                this.$('[data-paginator-link="prev"]').parent('li').addClass('disabled');
+            }
+            if (this.collection.currentPage === this.collection.totalPages) {
+                this.$('[data-paginator-link="next"]').parent('li').addClass('disabled');
+            }
+
         	return this;
         },
 
         prev: function() {
+            if (this.$('[data-paginator-link="prev"]').parent('li').hasClass('disabled')) {
+                return false;
+            }
             App.Notifications.trigger('Paginator.onPrePage', null);
         	this.collection.previousPage({});
         	this.collection.getCollection();
-            return false; // Prevent href="#"
+            return false; // Prevent href="#" anchor event
         },
 
         next: function() {
+            if (this.$('[data-paginator-link="next"]').parent('li').hasClass('disabled')) {
+                return false;
+            }
             App.Notifications.trigger('Paginator.onPrePage', null);
         	this.collection.nextPage({});
         	//this.collection.goTo(this.collection.currentPage + 1);
         	this.collection.getCollection();
-            return false; // Prefent href="#"
+            return false; // Prevent href="#" anchor event
         }
 
     });
