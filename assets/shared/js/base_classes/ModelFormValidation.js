@@ -1,12 +1,11 @@
-// var Test = {};
-// Test.init = function() {}
-
 var BaseClasses = BaseClasses || {};
-// BaseClasses.test = 'asdf';
 
-// function UI () {};
-// UI.test = 'asdf';
-
+/**
+ * BaseClasses.ModelFormValidation class
+ *
+ * Extends the Backbone.Model class. Provides basic
+ * form validation.
+ */
 BaseClasses.ModelFormValidation = Backbone.Model.extend({
 
     _currentValidation: {
