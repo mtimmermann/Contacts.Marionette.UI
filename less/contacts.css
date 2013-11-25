@@ -6028,6 +6028,10 @@ ul.pagination {
 .contact-edit div.contact-image .instructions {
   width: 180px;
 }
+.contact-details legend button {
+  margin-left: 30px;
+  margin-bottom: 5px;
+}
 .contact-edit .medium {
   min-width: 250px;
 }
