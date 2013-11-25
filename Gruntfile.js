@@ -88,9 +88,7 @@ module.exports = function (grunt) {
                 src: [
                     'vendor/plugins/backbone/backbone-validation.js',
                     'vendor/plugins/serialize-object.js',
-                    'vendor/bootstrap/js/bootstrap.js',
-                    'assets/shared/js/validate.js',
-                    'assets/shared/js/ui.js'
+                    'vendor/bootstrap/js/bootstrap.js'
                 ]
             },
             contacts_plugins: {
@@ -108,10 +106,8 @@ module.exports = function (grunt) {
                     'vendor/bootstrap/js/bootstrap.js',
                     'vendor/bootstrap/js/bootstrap-dropdown.js',
                     'vendor/moment.js',
-                    'assets/shared/js/base_classes/ModelFormValidation.js'
-                    //'assets/shared/js/validate.js',
-                    //'assets/shared/js/ui.js',
-                    //'assets/shared/js/session-timer.js'
+                    'assets/shared/js/base_classes/ModelFormValidation.js',
+                    'assets/shared/js/base_classes/RegionFadeIn.js'
                 ]
             }
         },
