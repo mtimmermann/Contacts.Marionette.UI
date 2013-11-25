@@ -1,8 +1,7 @@
 define(function(require, exports, module) {
 
-    var ModelFormValidation = require('models/base/ModelFormValidation');
-
-    return ModelFormValidation.extend({
+    // Contact class - model
+    return BaseClasses.ModelFormValidation.extend({
 
         urlRoot: 'services/v1/contacts',
 

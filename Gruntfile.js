@@ -108,9 +108,10 @@ module.exports = function (grunt) {
                     'vendor/bootstrap/js/bootstrap.js',
                     'vendor/bootstrap/js/bootstrap-dropdown.js',
                     'vendor/moment.js',
-                    'assets/shared/js/validate.js',
-                    'assets/shared/js/ui.js',
-                    'assets/shared/js/session-timer.js'
+                    'assets/shared/js/base_classes/ModelFormValidation.js'
+                    //'assets/shared/js/validate.js',
+                    //'assets/shared/js/ui.js',
+                    //'assets/shared/js/session-timer.js'
                 ]
             }
         },
