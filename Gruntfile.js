@@ -154,15 +154,16 @@ module.exports = function (grunt) {
                 options: { livereload: true }
             },
             contacts_scripts: {
-                files: ['apps/contacts/**/*.js','apps/contacts/**/*.jst', 'vendor/**/*.js', 'less/**/*.less'],
-                tasks: ['requirejs:contacts', 'less', 'copy', 'notify:scripts'],
+                //files: ['apps/contacts/**/*.js','apps/contacts/**/*.jst', 'vendor/**/*.js', 'less/**/*.less'],
+                files: ['apps/contacts/**/*.js','apps/contacts/**/*.jst', 'vendor/**/*.js'],
+                tasks: ['requirejs:contacts', 'copy', 'notify:scripts'],
                 options: { livereload: true }
             },
-            // compass: {
-            //     files: ['sass/**/*.scss', 'assets/blocks/**/*.scss'],
-            //     tasks: ['compass', 'notify:compass'],
-            //     options: { livereload: true }
-            // },
+            less : {
+                files: ['less/**/*.less'],
+                tasks: ['less', 'requirejs:contactsCSS', 'notify:less'],
+                options: { livereload: true }
+            },
             templates: {
                 files: ['**/*.html', '!deploy/**/*.html'],
                 tasks: ['copy', 'notify:templates'],
@@ -309,7 +310,7 @@ module.exports = function (grunt) {
 
     //base build taks
     //grunt.registerTask('base', ['clean', 'compass', 'concat', 'copy', 'gitinfo']);
-    grunt.registerTask('base', ['clean', 'concat', 'copy', 'gitinfo']);
+    grunt.registerTask('base', ['clean', 'concat', 'less', 'copy', 'gitinfo']);
 
     // only build login for development
     //grunt.registerTask('login', ['base','requirejs:login','notify:build', 'compress']);
