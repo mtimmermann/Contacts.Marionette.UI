@@ -3,7 +3,7 @@ define(function(require, exports, module) {
 	var ContactEditTemplate = require('tpl!templates/contact_edit.jst');
 
 	// ContactDetails class - Item view
-    return Backbone.Marionette.ItemView.extend({
+    return BaseClasses.ItemViewFadeIn.extend({
 
         tagName: 'div',
         className: 'contact-edit',

@@ -18,6 +18,7 @@ define(function(require, exports, module) {
                 throw (new Error('ContactList View: collection option is required'));
             }
         }
+
     });
 
 });

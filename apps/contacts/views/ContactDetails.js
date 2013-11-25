@@ -3,7 +3,7 @@ define(function(require, exports, module) {
     var ContactDetailsTemplate = require('tpl!templates/contact_details.jst');
 
     // ContactDetails class - Item view
-    return Backbone.Marionette.ItemView.extend({
+    return BaseClasses.ItemViewFadeIn.extend({
 
         tagName: 'div',
         className: 'contact-details',
@@ -19,6 +19,14 @@ define(function(require, exports, module) {
                 throw (new Error('ContactDetails View: model option is required'));
             }
         },
+
+        // onRender: function() {
+        //     this.$el.hide();
+        // },
+
+        // onShow: function() {
+        //     this.$el.fadeIn();
+        // },
 
         edit: function() {
             App.appRouter.navigate('#contacts/edit/'+ this.model.get('id'), true);

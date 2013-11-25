@@ -2,8 +2,8 @@ define(function(require, exports, module) {
 
 	var AboutTemplate = require('tpl!templates/about.jst');
 
-    // ItemView provides some default rendering logic
-    return Backbone.Marionette.ItemView.extend({
+    // About class - Item view
+    return BaseClasses.ItemViewFadeIn.extend({
         template: AboutTemplate
     });
 

@@ -7,9 +7,9 @@ define(function(require, exports, module) {
         template: ContactListLayout,
 
         regions: {
-            paginatorTop: "#paginator-top",
+            paginatorTop: '#paginator-top',
             contactSearch: '#contact-search',
-            contactList: "#contact-list",
+            contactList: BaseClasses.RegionFadeIn.extend({ el: '#contact-list' }),
             paginatorBottom: '#paginator-bottom'
         }
     });
