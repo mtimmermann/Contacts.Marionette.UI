@@ -86,7 +86,9 @@
     <div class="col-md-12 column">
         <div class="form-actions">
             <button data-contact-edit-button="save" class="btn btn-primary save">Save</button>
+            <% if (id) { %>
             <button data-contact-edit-button="delete" class="btn delete">Delete</button>
+            <% } %>
         </div>
     </div>
 </div>
