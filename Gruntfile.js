@@ -6,16 +6,6 @@ module.exports = function (grunt) {
 
         pkg: grunt.file.readJSON('package.json'),
 
-        // compass: {
-        //     deploy: {
-        //         options: {
-        //             config: 'config.rb',
-        //             sassDir: 'sass',
-        //             cssDir: 'deploy/styles'
-        //         }
-        //     }
-        // },
-
         // Running `grunt less` will compile once
         //"./css/style.css": "./css/style.less"
         less: {
@@ -25,7 +15,7 @@ module.exports = function (grunt) {
                     yuicompress: true
                 },
                 files: {
-                    "less/contacts.css": "less/contacts.less"
+                    'less/contacts.css': 'less/contacts.less'
                 }
             }
         },
@@ -103,24 +93,6 @@ module.exports = function (grunt) {
                     'assets/shared/js/ui.js'
                 ]
             },
-            // portal_plugins: {
-            //     options: {
-            //         banner: '//concat plugins\n',
-            //         footer: '//end concat plugins\n'
-            //     },
-            //     dest: 'deploy/portal/js/plugins.js',
-            //     src: [
-            //         'vendor/plugins/backbone/backbone-validation.js',
-            //         'vendor/plugins/serialize-object.js',
-            //         'vendor/plugins/jquery/file-upload/vendor/jquery.ui.widget.js',
-            //         'vendor/plugins/jquery/file-upload/jquery.fileupload.js',
-            //         'vendor/bootstrap/js/bootstrap.js',
-            //         'vendor/moment.js',
-            //         'assets/shared/js/validate.js',
-            //         'assets/shared/js/ui.js',
-            //         'assets/shared/js/session-timer.js'
-            //     ]
-            // },
             contacts_plugins: {
                 options: {
                     banner: '//concat plugins\n',
@@ -154,7 +126,6 @@ module.exports = function (grunt) {
                 options: { livereload: true }
             },
             contacts_scripts: {
-                //files: ['apps/contacts/**/*.js','apps/contacts/**/*.jst', 'vendor/**/*.js', 'less/**/*.less'],
                 files: ['apps/contacts/**/*.js','apps/contacts/**/*.jst', 'vendor/**/*.js'],
                 tasks: ['requirejs:contacts', 'copy', 'notify:scripts'],
                 options: { livereload: true }
@@ -192,11 +163,6 @@ module.exports = function (grunt) {
                     message: 'Scripts combined successfully.'
                 }
             },
-            // compass: {
-            //     options: {
-            //         message: 'Sass compiled successfully.'
-            //     }
-            // },
             less: {
                 options: {
                     message: 'Less compiled successfully.'
@@ -217,24 +183,6 @@ module.exports = function (grunt) {
             options:{
                 optimize: 'none'
             },
-            // portal: {
-            //     options: {
-            //         baseUrl: 'apps/portal',
-            //         mainConfigFile: 'apps/portal/config/require_config.js',
-            //         out: 'deploy/portal/js/main.js',
-            //         generateSourceMaps: false,
-            //         useSourceUrl: false
-
-            //     }
-            // },
-            // portal_prod: {
-            //     options: {
-            //         baseUrl: 'apps/portal',
-            //         mainConfigFile: 'apps/portal/config/require_config.js',
-            //         out: 'deploy/portal/js/main.js',
-            //         optimize: 'uglify2'
-            //     }
-            // },
             contacts: {
                 options: {
                     baseUrl: 'apps/contacts',
@@ -255,9 +203,9 @@ module.exports = function (grunt) {
             },
             contactsCSS: {
                 options: {
-                    optimizeCss: "standard",
-                    cssIn: "less/contacts.css",
-                    out: "deploy/styles/contacts.min.css"
+                    optimizeCss: 'standard',
+                    cssIn: 'less/contacts.css',
+                    out: 'deploy/styles/contacts.min.css'
                 }
             },
             login: {
@@ -284,9 +232,9 @@ module.exports = function (grunt) {
         //     options:{
         //         mode: 'tgz'
         //     },
-        //     physician: {
+        //     contacts: {
         //         options:{
-        //             archive: 'deploy/physician_'+new Date().getTime()+'_<%= gitinfo.local.branch.current.name %>_<%= gitinfo.local.branch.current.shortSHA %>.tgz'
+        //             archive: 'deploy/contacts_'+new Date().getTime()+'_<%= gitinfo.local.branch.current.name %>_<%= gitinfo.local.branch.current.shortSHA %>.tgz'
         //         },
         //         expand: true,
         //         cwd: 'deploy',
@@ -297,7 +245,6 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-concat');
-    //grunt.loadNpmTasks('grunt-contrib-compass');
     grunt.loadNpmTasks('grunt-contrib-less');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.loadNpmTasks('grunt-contrib-clean');
@@ -308,33 +255,21 @@ module.exports = function (grunt) {
     //grunt.loadNpmTasks('grunt-contrib-jshint');
 
 
-    //base build taks
-    //grunt.registerTask('base', ['clean', 'compass', 'concat', 'copy', 'gitinfo']);
+    // Base build tasks
     grunt.registerTask('base', ['clean', 'concat', 'less', 'copy', 'gitinfo']);
 
-    // only build login for development
-    //grunt.registerTask('login', ['base','requirejs:login','notify:build', 'compress']);
+    // Build login for development
     grunt.registerTask('login', ['base','requirejs:login','notify:build']);
 
-    // only build portal for development
-    //grunt.registerTask('portal', ['base','requirejs:portal','notify:build', 'compress']);
-    //grunt.registerTask('portal', ['base','requirejs:portal','notify:build']);
-
-    // only build contacts for development
-    //grunt.registerTask('portal', ['base','requirejs:portal','notify:build', 'compress']);
+    // Build contacts for development
     grunt.registerTask('contacts', ['base','requirejs:contacts','requirejs:contactsCSS','notify:build']);
 
-    // build portal and login for development
-    //grunt.registerTask('dev', ['base', 'jshint', 'requirejs:login','requirejs:portal','notify:build', 'compress']);
-    //grunt.registerTask('dev', ['base', 'requirejs:login','requirejs:portal','notify:build', 'compress']);
-    //grunt.registerTask('dev', ['base', 'requirejs:login','requirejs:portal','notify:build']);
+    // Build contacts and login for development
     grunt.registerTask('dev', ['base', 'requirejs:login','requirejs:contacts','requirejs:contactsCSS','notify:build']);
 
-    // only build portal and login for production
-    //grunt.registerTask('prod', ['base', 'requirejs:login_prod','requirejs:portal_prod', 'compress']);
-    //grunt.registerTask('prod', ['base', 'requirejs:login_prod','requirejs:portal_prod']);
+    // Build contacts and login for production
     grunt.registerTask('prod', ['base', 'requirejs:login_prod','requirejs:contacts_prod','requirejs:contactsCSS']);
 
-    //default task runs complete dev build
+    // Default task runs complete dev build
     grunt.registerTask('default', ['dev']);
 };
