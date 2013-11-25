@@ -17,6 +17,10 @@ define(function(require, exports, module) {
             if (!options.collection) {
                 throw (new Error('ContactList View: collection option is required'));
             }
+        },
+
+        onShow: function() {
+            App.Notifications.trigger('ContactListView.onShow', null);
         }
 
     });

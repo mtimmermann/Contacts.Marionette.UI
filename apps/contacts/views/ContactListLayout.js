@@ -2,6 +2,7 @@ define(function(require, exports, module) {
 
 	var ContactListLayout = require('tpl!templates/contact_list_layout.jst');
 
+    // ContactListLayout class - layout view
     return Backbone.Marionette.Layout.extend({
 
         template: ContactListLayout,
@@ -9,7 +10,8 @@ define(function(require, exports, module) {
         regions: {
             paginatorTop: '#paginator-top',
             contactSearch: '#contact-search',
-            contactList: BaseClasses.RegionFadeIn.extend({ el: '#contact-list' }),
+            //contactList: BaseClasses.RegionFadeIn.extend({ el: '#contact-list' }),
+            contactList: '#contact-list',
             paginatorBottom: '#paginator-bottom'
         }
     });
