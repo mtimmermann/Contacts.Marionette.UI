@@ -5,6 +5,8 @@ define(function(require, exports, module) {
 	// ContactDetails class - Item view
     return Backbone.Marionette.ItemView.extend({
 
+        tagName: 'div',
+        className: 'contact-details',
     	template: ContactEditTemplate,
 
     	events: {
