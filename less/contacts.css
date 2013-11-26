@@ -6013,6 +6013,7 @@ ul.pagination {
 }
 .contact-list ul.thumbnails li.thumbnail-container {
   width: 220px;
+  /*height: 320px;*/
   float: left;
   margin-right: 10px;
   display: list-item;
@@ -6024,6 +6025,9 @@ ul.pagination {
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+.contact-list ul.thumbnails li.thumbnail-container a {
+  height: 320px;
 }
 .contact-list ul.thumbnails li.thumbnail-container a.plain:link {
   color: #333;
