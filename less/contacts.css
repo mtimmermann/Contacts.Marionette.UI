@@ -6023,19 +6023,31 @@ ul.pagination {
   margin-left: -40px;
   list-style: none;
 }
-.contact-list ul.thumbnails li.thumbnail {
+.contact-list ul.thumbnails li.thumbnail-container {
   width: 220px;
   float: left;
   margin-right: 10px;
   display: list-item;
 }
-.contact-list ul.thumbnails li.thumbnail img {
+.contact-list ul.thumbnails li.thumbnail-container img {
   width: 150px;
   height: 150px;
   display: block;
   max-width: 100%;
   margin-left: auto;
   margin-right: auto;
+}
+.contact-list ul.thumbnails li.thumbnail-container a.plain:link {
+  color: #333;
+  text-decoration: none;
+}
+.contact-list ul.thumbnails li.thumbnail-container a.plain:visited {
+  color: #333;
+  text-decoration: none;
+}
+.contact-list ul.thumbnails li.thumbnail-container a:hover {
+  border-color: #0088CC;
+  background-color: #EEE;
 }
 .contact-details div.contact-image,
 .contact-edit div.contact-image {

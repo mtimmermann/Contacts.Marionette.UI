@@ -8,7 +8,7 @@ define(function(require, exports, module) {
         //tagName: 'div',
         //className: 'contact-card',
         tagName: 'li',
-        className: 'thumbnail',
+        className: 'thumbnail-container',
         template: ContactListItemTemplate
     });
 
