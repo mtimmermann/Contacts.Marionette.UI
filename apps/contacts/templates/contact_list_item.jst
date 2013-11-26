@@ -2,8 +2,10 @@
     <img src="{{ picture === null ? 'img/avatar_default.jpg' : 'pics/' + picture }}" alt="{{ firstName }}">
     <h5><strong>{{ lastName }}, {{ firstName }}</strong></h5>
     <p>
+        <% if (phone1) { %>
         {{ phone1 }} {{ phone1_note }} <br />
+        <% } %>
         {{ email1 }}
     </p>
-    <i class="icon-globe"></i> {{ city }} {{ region }}, {{ country }}</p>
+    <p><span class="glyphicon glyphicon-globe"></span> {{ city }} {{ region }}, {{ country }}</p>
 </a>
