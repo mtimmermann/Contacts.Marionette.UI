@@ -6007,13 +6007,35 @@ td.visible-print {
 ul.pagination {
   margin-left: 10px;
 }
-.contact-card img {
+/*
+.contact-card {
+    img {
+        width: 150px;
+        height: 150px;
+    }
+    .thumbnail:hover {
+        background-color: #EEE;
+        border: 1px solid #428BCA;
+    }
+}
+*/
+.contact-list ul.thumbnails {
+  margin-left: -40px;
+  list-style: none;
+}
+.contact-list ul.thumbnails li.thumbnail {
+  width: 220px;
+  float: left;
+  margin-right: 10px;
+  display: list-item;
+}
+.contact-list ul.thumbnails li.thumbnail img {
   width: 150px;
   height: 150px;
-}
-.contact-card .thumbnail:hover {
-  background-color: #EEE;
-  border: 1px solid #428BCA;
+  display: block;
+  max-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .contact-details div.contact-image,
 .contact-edit div.contact-image {

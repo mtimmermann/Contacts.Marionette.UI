@@ -6,8 +6,10 @@ define(function(require, exports, module) {
 
     // ContactList class - Composite view
     return Backbone.Marionette.CompositeView.extend({
-        tagName: 'div',
-        className: 'row',
+        //tagName: 'div',
+        //className: 'row',
+        tagName: 'ul',
+        className: 'thumbnails',
         template: ContactListTemplate,
         itemView: ContactListItemView,
         //collection: Contacts,

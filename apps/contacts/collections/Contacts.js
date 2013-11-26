@@ -28,7 +28,7 @@ define(function(require, exports, module) {
             currentPage: 1,
 
             // How many items per page should be shown
-            perPage: 6,
+            perPage: 8,
 
             // A default number of total pages to query in case the API or
             // service you are using does not support providing the total
