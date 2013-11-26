@@ -6007,18 +6007,6 @@ td.visible-print {
 ul.pagination {
   margin-left: 10px;
 }
-/*
-.contact-card {
-    img {
-        width: 150px;
-        height: 150px;
-    }
-    .thumbnail:hover {
-        background-color: #EEE;
-        border: 1px solid #428BCA;
-    }
-}
-*/
 .contact-list ul.thumbnails {
   margin-left: -40px;
   list-style: none;

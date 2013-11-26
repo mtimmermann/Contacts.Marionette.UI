@@ -1,18 +1,3 @@
-<!--<a href="#contacts/{{ id }}">
-    <div class="col-md-4">
-        <div class="thumbnail">
-            <img src="{{ picture === null ? 'img/avatar_default.jpg' : 'pics/' + picture }}" alt="{{ firstName }}">
-            <div class="caption">
-                <h5><strong>{{ lastName }}, {{ firstName }}</strong></h5>
-                <p>
-                    {{ phone1 }} {{ phone1_note }} <br />
-                    {{ email1 }}
-                </p>
-                <i class="icon-globe"></i> {{ city }} {{ region }}, {{ country }}</p>
-            </div>
-        </div>
-    </div>
-</a>-->
 <a href="#contacts/{{ id }}" class="thumbnail plain">
     <img src="{{ picture === null ? 'img/avatar_default.jpg' : 'pics/' + picture }}" alt="{{ firstName }}">
     <h5><strong>{{ lastName }}, {{ firstName }}</strong></h5>

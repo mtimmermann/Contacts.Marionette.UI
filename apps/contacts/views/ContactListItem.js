@@ -5,8 +5,6 @@ define(function(require, exports, module) {
     // ContactListItem class - Item view
     //return Backbone.Marionette.ItemView.extend({
     return BaseClasses.ItemViewFadeIn.extend({
-        //tagName: 'div',
-        //className: 'contact-card',
         tagName: 'li',
         className: 'thumbnail-container',
         template: ContactListItemTemplate

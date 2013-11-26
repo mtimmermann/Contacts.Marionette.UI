@@ -114,7 +114,8 @@ define(function(require, exports, module) {
 
         // Prevent UI shifting on contact paging operations
         _onPrePage: function(/*message*/) {
-            var height = App.mainRegion.currentView.contactList.$el.height();
+            //var height = App.mainRegion.currentView.contactList.$el.height();
+            var height = App.mainRegion.currentView.contactList.$el.parent().height();
             App.mainRegion.currentView.contactList.$el.css('height', height);
         },
         _onDonePage: function(/*message*/) {
