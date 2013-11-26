@@ -43,6 +43,7 @@ define(function(require, exports, module) {
             App.Notifications.trigger('Paginator.onPrePage', null);
         	this.collection.previousPage({});
         	this.collection.getCollection();
+            App.Notifications.trigger('Paginator.onDonePage', null);
             return false; // Prevent href="#" anchor event
         },
 
@@ -54,6 +55,7 @@ define(function(require, exports, module) {
         	this.collection.nextPage({});
         	//this.collection.goTo(this.collection.currentPage + 1);
         	this.collection.getCollection();
+            App.Notifications.trigger('Paginator.onDonePage', null);
             return false; // Prevent href="#" anchor event
         }
 

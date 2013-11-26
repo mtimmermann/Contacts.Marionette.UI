@@ -21,7 +21,7 @@ define(function(require, exports, module) {
             // Event subscriptions
             // Prevent UI shifting on contact paging operations
             App.Notifications.on('Paginator.onPrePage', this._onPrePage, this);
-            App.Notifications.on('ContactListView.onShow', this._onDonePage, this);
+            App.Notifications.on('Paginator.onDonePage', this._onDonePage, this);
         },
 
         // AppRouter appRoutes
