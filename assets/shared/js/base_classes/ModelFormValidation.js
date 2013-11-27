@@ -25,27 +25,7 @@ BaseClasses.ModelFormValidation = Backbone.Model.extend({
     },
     setSingleItemValidation: function(field) {
         this._setCurrentValidation(true, field);
-    },
-
-    change: function (e) {
-        // Apply the change to the model
-        var target = e.target;
-        var change = {};
-        var property = target.name;
-        change[property] = target.value;
-
-        // Setup the base validation model for the validation call backs.
-        this.model.setSingleItemValidation(property);
-
-        // Set validate: true to update validation with the model change
-        this.model.set(property, target.value);
-        this.model.set(change, {'validate': true});
-
-        // Trigger the item validation.
-        // Note: Form input error handling is performed within the model
-        //       class with the Backbone.Validation callback listener
-        var check = this.model.validateItem(property);
-    },
+    }
 
     isModelValid: function() {
         this._setCurrentValidation(false, '');
