@@ -64,7 +64,6 @@ define(function(require, exports, module) {
                 }
             }
             if (deferred.state() != 'resolved') {
-                var tmp = '';
                 contact = new Contact({'id': contactID});
                 contact.fetch().done(function() {
                     deferred.resolve();
