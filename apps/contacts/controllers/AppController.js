@@ -124,7 +124,7 @@ define(function(require, exports, module) {
                     App.mainRegion.currentView.contactList.$el.css('height', '');
                 }, 500);
             });
-        },
+        }
     });
 
 });
