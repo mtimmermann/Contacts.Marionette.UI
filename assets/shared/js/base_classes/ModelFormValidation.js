@@ -25,7 +25,7 @@ BaseClasses.ModelFormValidation = Backbone.Model.extend({
     },
     setSingleItemValidation: function(field) {
         this._setCurrentValidation(true, field);
-    }
+    },
 
     isModelValid: function() {
         this._setCurrentValidation(false, '');
