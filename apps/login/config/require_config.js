@@ -10,12 +10,17 @@ require.config({
     keepBuildDir:true,
     paths: {
         jquery: 'empty:',
+        marionette: '../../vendor/backbone.marionette',
         backbone: '../../vendor/backbone',
         underscore: '../../vendor/underscore',
-        plugins: '../../deploy/login/js/plugins',
+        plugins: '../../deploy/contacts/js/plugins',
         tpl: '../../vendor/plugins/require/tpl'
     },
     shim: {
+        'marionette': {
+            deps: ['backbone'],
+            exports: 'Marionette'
+        },
         'backbone': {
             deps: ['underscore'],
             exports: 'Backbone'
@@ -35,3 +40,4 @@ require.config({
     cjsTranslate: true
 
 });
+

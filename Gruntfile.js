@@ -15,7 +15,8 @@ module.exports = function (grunt) {
                     yuicompress: true
                 },
                 files: {
-                    'less/contacts.css': 'less/contacts.less'
+                    'less/contacts.css': 'less/contacts.less',
+                    'less/login.css': 'less/login.less'
                 }
             }
         },
@@ -130,7 +131,7 @@ module.exports = function (grunt) {
             },
             less : {
                 files: ['less/**/*.less'],
-                tasks: ['less', 'requirejs:contactsCSS', 'notify:less'],
+                tasks: ['less', 'requirejs:loginCSS', 'requirejs:contactsCSS', 'notify:less'],
                 options: { livereload: true }
             },
             templates: {
@@ -223,6 +224,13 @@ module.exports = function (grunt) {
                     out: 'deploy/login/js/main.js',
                     optimize: 'uglify2'
                 }
+            },
+            loginCSS: {
+                options: {
+                    optimizeCss: 'standard',
+                    cssIn: 'less/login.css',
+                    out: 'deploy/styles/login.min.css'
+                }
             }
         },
         gitinfo:{},
@@ -257,16 +265,16 @@ module.exports = function (grunt) {
     grunt.registerTask('base', ['clean', 'concat', 'less', 'copy', 'gitinfo']);
 
     // Build login for development
-    grunt.registerTask('login', ['base','requirejs:login','notify:build']);
+    grunt.registerTask('login', ['base','requirejs:login','requirejs:loginCSS','notify:build']);
 
     // Build contacts for development
     grunt.registerTask('contacts', ['base','requirejs:contacts','requirejs:contactsCSS','notify:build']);
 
     // Build contacts and login for development
-    grunt.registerTask('dev', ['base', 'requirejs:login','requirejs:contacts','requirejs:contactsCSS','notify:build']);
+    grunt.registerTask('dev', ['base', 'requirejs:login','requirejs:loginCSS','requirejs:contacts','requirejs:contactsCSS','notify:build']);
 
     // Build contacts and login for production
-    grunt.registerTask('prod', ['base', 'requirejs:login_prod','requirejs:contacts_prod','requirejs:contactsCSS']);
+    grunt.registerTask('prod', ['base', 'requirejs:login_prod','requirejs:loginCSS','requirejs:contacts_prod','requirejs:contactsCSS']);
 
     // Default task runs complete dev build
     grunt.registerTask('default', ['dev']);

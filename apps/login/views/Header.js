@@ -7,8 +7,7 @@ define(function(require, exports, module) {
 
     	events: {
     		'click [data-header-link="about"]': 'linkSelect',
-    		'click [data-header-link="index"]': 'linkSelect',
-            'click [data-header-link="logout"]': 'logout'
+    		'click [data-header-link="index"]': 'linkSelect'
     	},
 
         template: HeaderTemplate,
@@ -28,16 +27,6 @@ define(function(require, exports, module) {
             if (link && link !== 'none') {
         	   this.$('[data-header-link="'+ link +'"]').addClass('active');
             }
-        },
-
-        logout: function() {
-            $.ajax({
-                type: 'get',
-                dataType: 'json',
-                url: '/services/v1/logout'
-            }).done(function(/*data, textStatus, jqXHR*/) {
-                window.location.replace('/login');
-            });
         }
     });
 

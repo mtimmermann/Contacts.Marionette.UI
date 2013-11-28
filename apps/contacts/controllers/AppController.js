@@ -22,6 +22,7 @@ define(function(require, exports, module) {
             // Prevent UI shifting on contact paging operations
             App.Notifications.on('Paginator.onPrePage', this._onPrePage, this);
             App.Notifications.on('Paginator.onDonePage', this._onDonePage, this);
+            App.Notifications.on('Logout', this._onLogout, this);
         },
 
         // AppRouter appRoutes
@@ -52,6 +53,7 @@ define(function(require, exports, module) {
         },
 
         contactDetails: function(contactID) {
+            var self = this;
             this._headerView.setActiveLink('none');
 
             // Try finding model in current paged collection, otherwise fetch the model.
@@ -68,7 +70,9 @@ define(function(require, exports, module) {
                 contact.fetch().done(function() {
                     deferred.resolve();
                 }).fail(function(jqXHR/*, textStatus, errorThrown*/) {
-                    if (jqXHR.status == 404) {
+                    if (jqXHR.status === 403) {
+                        self._onLogout();
+                    } else if (jqXHR.status == 404) {
                         // TODO: 404 - Bootstrap alert message or view
                     } else {
                         // TODO: General server - Bootstrap alert message or view
@@ -81,13 +85,16 @@ define(function(require, exports, module) {
         },
 
         contactEdit: function(contactID) {
+            var self = this;
             this._headerView.setActiveLink('none');
             var contact = new Contact({'id': contactID});
             var deferred = contact.fetch();
             $.when(deferred.promise()).done(function () {
                 App.mainRegion.show(new ContactEditView({model: contact}));
             }).fail(function(jqXHR/*, textStatus, errorThrown*/) {
-                if (jqXHR.status == 404) {
+                if (jqXHR.status === 403) {
+                    self._onLogout();
+                } else if (jqXHR.status === 404) {
                     // TODO: 404 - Bootstrap alert message or view
                 } else {
                     // TODO: General server - Bootstrap alert message or view
@@ -123,6 +130,10 @@ define(function(require, exports, module) {
                     App.mainRegion.currentView.contactList.$el.css('height', '');
                 }, 500);
             });
+        },
+
+        _onLogout: function(/*message*/) {
+            window.location.replace('/login');
         }
     });
 

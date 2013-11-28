@@ -1,21 +1,21 @@
 define(function(require, exports, module) {
 
-    var LoginTemplate = require('tpl!templates/login.jst'),
-        LoginModel = require('models/Login');
+    var RegisterTemplate = require('tpl!templates/register.jst'),
+        RegisterModel = require('models/Register');
 
-    // Login class - Item view
+    // Register class - Item view
     return BaseClasses.ItemViewFadeIn.extend({
         tagName: 'div',
-        className: 'row clearfix login-form',
-        template: LoginTemplate,
+        className: 'row clearfix registration-form',
+        template: RegisterTemplate,
 
         events: {
             'change': 'change',
-            'click [data-login-form-button="login"]': 'validate'
+            'click [data-registration-form-button="signup"]': 'validate'
         },
 
         initialize: function(/*options*/) {
-            this.model = new LoginModel();
+            this.model = new RegisterModel();
             Backbone.Validation.bind(this);
         },
 
@@ -52,30 +52,40 @@ define(function(require, exports, module) {
                 return false; // Prevent form submit
             }
 
-            this.login();
+            if (this.model.get('password') === this.model.get('confirmPassword')) {
+                this.register();
+            } else {
+                var formGroup = this.$('#confirmPassword').parent('.form-group');
+                formGroup.addClass('error');
+                formGroup.find('.help-inline').html('Confirm password and password fields do not match');
+            }
 
             return false; // Prevent form submit
         },
 
-        login: function() {
+        register: function() {
             var self = this;
+
+            var data = _(this.model.attributes).clone();
+            delete data.confirmPassword;
             $.ajax({
                 type: 'post',
                 contentType: 'application/json',
                 dataType: 'json',
-                data: JSON.stringify(this.model.attributes),
-                url: '/services/v1/login'
-            }).success(function(response/*, textStatus, jqXHR*/) {
+                data: JSON.stringify(data),
+                url: '/services/v1/register'
+            }).done(function(response/*, textStatus, jqXHR*/) {
                 if (response.IsSuccess) {
                     window.location.replace('/');
                 } else {
-                    self._showAlert(self.$('[data-login-form-alert="tech-problems"]'));
+                    self._showAlert(self.$('[data-registration-form-alert="tech-problems"]'));
                 }
-            }).error(function (jqXHR, textStatus, errorThrown) {
-                if (jqXHR.status === 401) {
-                    self._showAlert(self.$('[data-login-form-alert="auth-failed"]'));
+            }).fail(function (jqXHR/*, textStatus, errorThrown*/) {
+                if (jqXHR.status === 409 && jqXHR.responseJSON &&
+                    jqXHR.responseJSON.message && jqXHR.responseJSON.message === 'User exists') {
+                        self._showAlert(self.$('[data-registration-form-alert="user-exists"]'));
                 } else {
-                    self._showAlert(self.$('[data-login-form-alert="tech-problems"]'));
+                    self._showAlert(self.$('[data-registration-form-alert="tech-problems"]'));
                 }
             });
         },

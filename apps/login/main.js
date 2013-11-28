@@ -1,16 +1,22 @@
 /* global define */
 
 define(function(require, exports, module) {
+
     var _ = require('underscore'),
         Backbone = require('backbone'),
-        LoginApp = require('app'),
-        Plugins = require('plugins');
+        Marionette = require('marionette'),
+        Plugins = require('plugins'),
+        App = require('App'),
+        AppRouter = require('routers/AppRouter'),
+        AppController = require('controllers/AppController');
 
+    // Init the app router and controller
+    App.appRouter = new AppRouter({
+        controller: new AppController()
+    });
 
-    window.app = LoginApp;
-	$(function(){
-        window.app.initialize();
-        delete window.app.initialize;
-        window.app.views.loginView.render();
+    $(function() {
+        window.App = App;
+        window.App.start();
     });
 });
