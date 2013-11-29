@@ -5,6 +5,7 @@ define(function(require, exports, module) {
     // Paginator View
     return Backbone.Marionette.ItemView.extend({
 
+        className: 'pagination-wrapper',
         template: PaginatorTemplate,
 
         events: {
@@ -52,9 +53,9 @@ define(function(require, exports, module) {
                 return false;
             }
             App.Notifications.trigger('Paginator.onPrePage', null);
-        	this.collection.nextPage({});
-        	//this.collection.goTo(this.collection.currentPage + 1);
-        	this.collection.getCollection();
+            this.collection.nextPage({});
+            //this.collection.goTo(this.collection.currentPage + 1);
+            this.collection.getCollection();
             App.Notifications.trigger('Paginator.onDonePage', null);
             return false; // Prevent href="#" anchor event
         }

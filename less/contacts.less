@@ -8,13 +8,36 @@
 
 .contact-search-input {
     padding-top: 20px;
+    margin-left: 30px;
 }
 
-ul.pagination {
-    margin-left: 10px;
+.pagination-wrapper {
+    margin-bottom: -26px;
+    margin-left: 15px;
+    ul.pagination {
+        margin-left: 10px;
+    }
 }
 
-.contact-list{
+.contact-list,
+.contact-list-infinite-scroll {
+    .thumbnail-container {
+        a.plain:link {
+            color: #333;
+            text-decoration: none;
+        }
+        a.plain:visited {
+            color: #333;
+            text-decoration: none;
+        }
+        a:hover {
+            border-color: #0088CC;
+            background-color: #EEE;
+        }
+    }
+}
+
+.contact-list {
     ul.thumbnails {
         margin-left: -40px;
         list-style: none;
@@ -34,18 +57,26 @@ ul.pagination {
             a {
                 height: 300px;
             }
-            a.plain:link {
-                color: #333;
-                text-decoration: none;
-            }
-            a.plain:visited {
-                color: #333;
-                text-decoration: none;
-            }
-            a:hover {
-                border-color: #0088CC;
-                background-color: #EEE;
-            }
+        }
+    }
+}
+
+.contact-list-infinite-scroll {
+    .thumbnail-container {
+        img {
+            width: 150px;
+            height: 150px;
+        }
+        img.small {
+            width: 100px;
+            height: 100px;
+        }
+        .left-region,
+        .right-region {
+            vertical-align: top;
+        }
+        .left-region {
+            margin-right: 20px;
         }
     }
 }

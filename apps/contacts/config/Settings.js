@@ -6,7 +6,7 @@ define(function(require, exports, module) {
         public: {
             // True if app is used w/ multiple users and uploaded
             // pics need to be stored in separated sub-directories.
-            getUserInfo: false,
+            getUserInfo: true,
 
             userInfo: null,
 
